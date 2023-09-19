@@ -16,6 +16,6 @@ jobs:
     - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag someprojectximage:$(date +%s)
+      run: docker build . --file Dockerfile --tag someprojectximage
     - name: Run the image
-      run: docker run someprojectximage:$(date +%s)
+      run: docker run someprojectximage
