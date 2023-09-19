@@ -11,5 +11,15 @@ FUZZ_TEST_SETUP() {
 }
 
 FUZZ_TEST(const uint8_t *data, size_t size) {
-  /*Your code here*/
+    FuzzedDataProvider fuzzed_data(data, size);
+
+    //int num1 = fuzzed_data.ConsumeIntegral<int8_t>();
+    float num1 = fuzzed_data.ConsumeFloatingPoint<float>();
+    //char op = fuzzed_data.ConsumeBytes<char>(1)[0];
+    string my_string = fuzzed_data.ConsumeRandomLengthString();
+    char op = my_string[0];
+    //int num2 = fuzzed_data.ConsumeIntegral<int8_t>();
+    float num2 = fuzzed_data.ConsumeFloatingPoint<float>();
+
+    calculator(num1, op, num2);
 }
