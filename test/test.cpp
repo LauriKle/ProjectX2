@@ -7,6 +7,7 @@
 #include <string>
 
 FUZZ_TEST_SETUP() {
+  
   // Perform any one-time setup required by the FUZZ_TEST function.
 }
 
